@@ -61,8 +61,6 @@
             e.stopPropagation();
             e.preventDefault();
 
-            this.$element.trigger('show');
-
             $('html').on('click.timepicker.data-api', $.proxy(this.hide, this));
 
             if (true === this.disableFocus) {
@@ -91,13 +89,11 @@
             }
 
             this.open = true;
-            this.$element.trigger('shown');
 
             return this;
         }
 
         , hide: function(){
-            this.$element.trigger('hide');
             
             $('html').off('click.timepicker.data-api', $.proxy(this.hide, this));
 
@@ -107,7 +103,6 @@
                 this.$widget.removeClass('open');
             }
             this.open = false;
-            this.$element.trigger('hidden');
 
             return this;
         }
